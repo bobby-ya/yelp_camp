@@ -18,15 +18,14 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 
 app.get('/',(req,res)=>{
-
     res.render('landing')
 });
 
 
 app.get('/campgrounds',(req,res)=>{
-    Campground.find({},(err,allCampgrounds)=>{
-        if(err){
-            console.log(err)
+    Campground.find({},(error,allCampgrounds)=>{
+        if(error){
+            console.log(error)
         }else{
             res.render('index',{campgrounds:allCampgrounds})  
         }
@@ -64,6 +63,6 @@ app.get("/campgrounds/:id",(req,res)=>{
 
 
 
-app.listen(4000,()=>{
-    console.log("Yelp Camp Server Started");
+app.listen(8000,()=>{
+    console.log("Yelp Camp Started at port 8000");
 });
